@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="rfeijooS5Tarea.Views.viewPerson"
+             Title="viewPerson">
+    <VerticalStackLayout>
+        <Label 
+    Text="Tarea Semana 5 - Riccardo Feijoó"
+    FontSize="20"
+    VerticalOptions="Center"
+    HorizontalOptions="Center" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Ingrese Nombre"
+           Grid.Row="0"
+           Grid.Column="0"
+           HorizontalTextAlignment="Center"/>
+
+            <Entry x:Name="txtName"
+           Grid.Row="1"
+           Grid.Column="0"/>
+            <Button x:Name="btnAdd"
+            Text="Agregar Persona"
+            Grid.Row="2"
+            Grid.Column="0"
+            Clicked="btnAdd_Clicked"/>
+
+            <Label x:Name="lblStatusMssge"
+           Grid.Row="4"
+           Grid.Column="0"/>
+
+            <Label Text="Listado de Nombres"
+           Grid.Row="0"
+           Grid.Column="1"
+           HorizontalTextAlignment="Center"/>
+
+            <Button x:Name="btnObtain"
+            Text="Obtener Personas"
+            Grid.Row="1"
+            Grid.Column="1"
+            Clicked="btnObtain_Clicked"/>
+
+            <CollectionView x:Name="listPersons"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    SelectionMode="Single"
+                    SelectionChanged="listPersons_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Id}"/>
+                            <Label Grid.Column="1" Text="{Binding Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Editar Nombre"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontAttributes="Bold"/>
+            <Entry x:Name="txtUpdateName"
+                           Placeholder="Edite su nombre"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+            <Button x:Name="btnUpdt"
+                    Text="Actualizar Nombre"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Clicked="btnUpdt_Clicked"/>
+
+            <Label Text="Eliminar Nombre"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalTextAlignment="Center"/>
+            <Entry x:Name="txtNameDelete"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           IsEnabled="False"/>
+            <Button x:Name="btnDlt"
+                    Text="Eliminar Nombre"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Clicked="btnDlt_Clicked"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
